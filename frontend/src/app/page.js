@@ -16,7 +16,7 @@ export default function Home() {
 
   async function fetchMessages() {
     try {
-      const response = await fetch('/api/messages');
+      const response = await fetch('/');
       console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
