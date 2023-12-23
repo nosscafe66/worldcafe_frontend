@@ -1,5 +1,3 @@
-// src/app/page.js
-// "use client" ディレクティブを追加
 "use client";
 
 import Image from 'next/image';
@@ -12,12 +10,14 @@ export default function Home() {
   useEffect(() => {
     fetchMessages().then(data => {
       setMessages(data);
+      console.log("================");
     });
   }, []);
 
   async function fetchMessages() {
     try {
       const response = await fetch('/api/messages');
+      console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
