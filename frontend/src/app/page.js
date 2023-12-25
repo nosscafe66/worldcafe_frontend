@@ -16,7 +16,7 @@ export default function Home() {
 
   async function fetchMessages() {
     try {
-      const response = await fetch('/');
+      const response = await fetch('https://worldcafe-backend.vercel.app/');
       console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
