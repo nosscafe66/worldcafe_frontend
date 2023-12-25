@@ -1,29 +1,26 @@
+// 例: Reactコンポーネント
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from './page.module.css';
 
-export default function Home() {
-  const [messages, setMessages] = useState([]);
+function DataComponent() {
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(`${process.env.LINE_BACKEND_URL}/api/messages`);
-      const data = await res.json();
-      setMessages(data);
+      const response = await fetch(`${process.env.LINE_BACKEND_URL}/api/data`);
+      const result = await response.json();
+      setData(result);
     }
 
     fetchData();
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        {messages.map((message) => (
-          <div key={message.id}>
-            {message.text} - {message.user_id}
-          </div>
-        ))}
-      </div>
-    </main>
+    <div>
+      {data.map(item => (
+        <div key={item.id}>{item.name}</div> // あなたのデータに応じて調整
+      ))}
+    </div>
   );
 }
+
+export default DataComponent;
