@@ -6,7 +6,7 @@ function DataComponent() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${process.env.LINE_BACKEND_URL}/api/data`);
+      const response = await fetch(`/api/data`);
       const result = await response.json();
       setData(result);
     }

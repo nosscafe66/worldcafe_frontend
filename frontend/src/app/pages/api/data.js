@@ -2,7 +2,7 @@
 import { Pool } from 'pg'; // PostgreSQLを使う場合
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // 環境変数からデータベース接続情報を取得
+  connectionString: process.env.POSTGRES_URL, // 環境変数からデータベース接続情報を取得
   ssl: {
     rejectUnauthorized: false
   }
