@@ -3,11 +3,35 @@
 import React, { useState, useEffect } from 'react';
 import './page.css';
 
+// モーダルコンポーネント
+function Modal({ onClose, content }) {
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <span className="close-button" onClick={onClose}>&times;</span>
+        <p>{content}</p>
+      </div>
+    </div>
+  );
+}
+
 function DataDisplayComponent() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState(new Set());
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (eventContent) => {
+    setSelectedEvent(eventContent);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedEvent(null);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -79,7 +103,7 @@ function DataDisplayComponent() {
       <div className="card-container">
         {filteredData.length > 0 ? (
           filteredData.map((item, index) => (
-            <div key={index} className="card">
+            <div key={index} className="card" onClick={() => openModal(item.event_content)}>
               <p>Message: {item.text}</p>
               <p>User ID: {item.user_id}</p>
               <p>Category: {item.category}</p>
@@ -89,6 +113,7 @@ function DataDisplayComponent() {
           <p>データなし</p>
         )}
       </div>
+      {showModal && <Modal onClose={closeModal} content={selectedEvent} />}
     </div>
   );
 }
