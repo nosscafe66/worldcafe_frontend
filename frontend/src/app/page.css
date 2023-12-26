@@ -26,6 +26,7 @@
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-break: break-word; /* 長い文字列を折り返す */
   }
 
   .category-filters {
@@ -34,4 +35,18 @@
   
   .category-filters label {
     margin-right: 10px;
+  }
+
+  /* レスポンシブデザイン: タブレットサイズ */
+@media (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* 2列にする */
+    }
+  }
+  
+  /* レスポンシブデザイン: スマートフォンサイズ */
+  @media (max-width: 480px) {
+    .card {
+      width: 100%; /* 1列にする */
+    }
   }
