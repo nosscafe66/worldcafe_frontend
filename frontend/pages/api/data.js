@@ -1,8 +1,8 @@
 // pages/api/data.js
-import { Pool } from 'pg'; // PostgreSQLを使う場合
+import { Pool } from 'pg';
 
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL, // 環境変数からデータベース接続情報を取得
+  connectionString: process.env.POSTGRES_URL,
   ssl: {
     rejectUnauthorized: false
   }
