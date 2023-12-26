@@ -54,7 +54,7 @@ function DataDisplayComponent() {
 
   return (
     <div className="container">
-      <h1>LINE Bot Messages</h1>
+      <h1>イベント一覧</h1>
       <input 
         type="text" 
         placeholder="メッセージを検索" 
