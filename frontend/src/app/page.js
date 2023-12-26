@@ -8,7 +8,7 @@ function DataDisplayComponent() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://worldcafe-backend.vercel.app/');
+        const response = await fetch('https://worldcafe-backend.vercel.app/api/data');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
