@@ -1,33 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-// 例: データ取得用の関数
-async function fetchData() {
-  try {
-    const response = await fetch('https://worldcafe-backend.vercel.app/');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Fetch error:', error);
-  }
-}
-
 function DataDisplayComponent() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // データ読み込み中の状態
 
   useEffect(() => {
-    fetchData().then(data => {
-      setData(data);
-    });
+    async function fetchData() {
+      try {
+        const response = await fetch('https://worldcafe-backend.vercel.app/');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      } finally {
+        setIsLoading(false); // データ読み込み完了
+      }
+    }
+
+    fetchData();
   }, []);
+
+  if (isLoading) {
+    return <p>データを読み込み中...</p>;
+  }
 
   return (
     <div>
-      <h1>取得データ</h1>
-      {data.map(item => (
-        <div key={item.id}>{item.name}</div> // データの形式に応じて変更
-      ))}
+      <h1>LINE Bot Messages</h1>
+      {data.length > 0 ? (
+        data.map((item, index) => (
+          <div key={index}>
+            {/* データの構造に応じて表示を調整 */}
+            <p>Message: {item.text}</p>
+            <p>User ID: {item.user_id}</p>
+            {/* その他のデータフィールド */}
+          </div>
+        ))
+      ) : (
+        <p>データなし</p>
+      )}
     </div>
   );
 }
