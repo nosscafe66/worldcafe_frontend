@@ -81,7 +81,7 @@ function DataDisplayComponent() {
       <h1>イベント一覧</h1>
       <input 
         type="text" 
-        placeholder="メッセージを検索" 
+        placeholder="イベント検索" 
         value={searchTerm} 
         onChange={handleSearchChange} 
         className="search-input"
@@ -104,9 +104,8 @@ function DataDisplayComponent() {
         {filteredData.length > 0 ? (
           filteredData.map((item, index) => (
             <div key={index} className="card" onClick={() => openModal(item.event_content)}>
-              <p>Message: {item.text}</p>
-              <p>User ID: {item.user_id}</p>
-              <p>Category: {item.category}</p>
+              <p>イベント: {item.text}</p>
+              <p>カテゴリ: {item.category}</p>
             </div>
           ))
         ) : (
