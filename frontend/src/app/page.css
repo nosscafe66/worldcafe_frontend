@@ -35,7 +35,7 @@ html, body {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #f1faee; /* カードの背景色も統一 */
+    background-color: rgb(119, 150, 244), 241, 250); /* カードの背景色も統一 */
   }
   
   .category-filters {
