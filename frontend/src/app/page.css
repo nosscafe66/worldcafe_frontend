@@ -3,14 +3,17 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f5f5f5; /* 軽い背景色 */
   }
   
   .search-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #a8dadc; /* 青系の境界線 */
     border-radius: 4px;
+    background-color: #edf6f9; /* 淡い青系の背景色 */
+    color: #1d3557; /* 濃い青系のテキスト色 */
   }
   
   .card-container {
@@ -22,23 +25,31 @@
   
   .card {
     width: calc(33.333% - 20px);
-    border: 1px solid #ddd;
+    border: 1px solid #6d6875; /* 淡い茶色の境界線 */
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     word-break: break-word; /* 長い文字列を折り返す */
+    background-color: #f1faee; /* 薄い青緑色の背景 */
+    color: #457b9d; /* 中間の青色 */
   }
-
+  
   .category-filters {
     margin-bottom: 20px;
   }
   
   .category-filters label {
     margin-right: 10px;
+    color: #6d6875; /* 茶色系のテキスト色 */
   }
-
+  
+  /* チェックボックスのカスタマイズ（オプション） */
+  .category-filters input[type="checkbox"] {
+    accent-color: #457b9d; /* 青系のチェックマーク */
+  }
+  
   /* レスポンシブデザイン: タブレットサイズ */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .card {
       width: calc(50% - 20px); /* 2列にする */
     }
@@ -50,3 +61,4 @@
       width: 100%; /* 1列にする */
     }
   }
+  
