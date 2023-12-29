@@ -10,7 +10,7 @@ const pool = new Pool({
 
 export default async function handler(req, res) {
   try {
-    const { rows } = await pool.query('SELECT * FROM linebot_messages'); // あなたのデータベースのクエリ
+    const { rows } = await pool.query('SELECT * FROM linebot_messages');
     res.status(200).json(rows);
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });

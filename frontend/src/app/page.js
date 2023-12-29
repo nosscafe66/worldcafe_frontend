@@ -79,21 +79,21 @@ function DataDisplayComponent() {
   return (
     <div className="container">
       <h1>イベント一覧</h1>
-      <input 
-        type="text" 
-        placeholder="イベント検索" 
-        value={searchTerm} 
-        onChange={handleSearchChange} 
+      <input
+        type="text"
+        placeholder="イベント検索"
+        value={searchTerm}
+        onChange={handleSearchChange}
         className="search-input"
       />
 
       <div className="category-filters">
         {uniqueCategories.map((category, index) => (
           <label key={index}>
-            <input 
-              type="checkbox" 
-              name={category} 
-              onChange={handleCategoryChange} 
+            <input
+              type="checkbox"
+              name={category}
+              onChange={handleCategoryChange}
             />
             {category}
           </label>
